@@ -32,24 +32,17 @@ Citizen.CreateThread(function ()
         TriggerServerEvent('mms-backpack:server:CheckBackpack')
         if BackpackInInventory and not BackpackAttached and not IsPedOnMount(PlayerPedId()) then
             Backpack = CreateObject(GetHashKey(GetBackpackModel), GetEntityCoords(PlayerPedId()), true, true, true)
-            local Spine = GetEntityBoneIndexByName(PlayerPedId(), "OH_IndependentMover")
+            local Spine = GetEntityBoneIndexByName(PlayerPedId(), 'CP_Back')
             if GetBackpackModel == Config.SmallModel then
-                AttachEntityToEntity(Backpack, PlayerPedId(), Spine, 0.0, - 0.3, 0.10, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(Backpack, PlayerPedId(), Spine, -0.35, 0.0, 0.12, -70.0, 0.0, -90.0, true, true, false, true, 1, true)
             elseif GetBackpackModel == Config.BigModel then
-                AttachEntityToEntity(Backpack, PlayerPedId(), Spine, 0.0, - 0.2, - 0.05, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(Backpack, PlayerPedId(), Spine, -0.5, 0.0, 0.08, -80.0, 0.0, -90.0, true, true, false, true, 1, true)
             end
-            print('WearingBackpack')
             BackpackAttached = true
         elseif not BackpackInInventory and BackpackAttached then
             BackpackAttached = false
             DetachEntity(Backpack, true, true)
             DeleteEntity(Backpack)
-            print('HaveNoBackpack')
-        elseif BackpackInInventory and BackpackAttached and IsPedOnMount(PlayerPedId()) then
-            BackpackAttached = false
-            DetachEntity(Backpack, true, true)
-            DeleteEntity(Backpack)
-            print('ImOnHorse')
         end
         Citizen.Wait(500)
     end

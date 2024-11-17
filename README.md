@@ -12,7 +12,9 @@
 # Changelog
 
 - 1.1.0 Initial Release Version
-
+- 1.1.1 Changed Bone
+- Fixed Minor Bug
+- Get no more Removed on Horse
 
 # installation 
 
