@@ -15,6 +15,8 @@
 - 1.1.1 Changed Bone
 - Fixed Minor Bug
 - Get no more Removed on Horse
+- 1.1.2 Merged Pull Request Added Webhook for Backpack
+- Open Ticket to Get Role
 
 # installation 
 
